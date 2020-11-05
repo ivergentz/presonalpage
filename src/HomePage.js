@@ -6,6 +6,7 @@ import CvSection from './components/CvSection'
 import PorjectsSection from './components/ProjectsSection'
 import logo from './img/ig.png'
 import iver from './img/iver.png'
+import { Link } from 'react-scroll'
 
 export default function HomePage() {
   return (
@@ -13,18 +14,27 @@ export default function HomePage() {
       <HeaderContainer id="head">
         <Logo src={logo} alt="logo" />
         <Header>ohne das "OL..."</Header>
-        <Navigation>
-          <a href="#about">about</a>
-          <a href="#cv">cv</a>
-          <a href="#projects">projects</a>
-          <a href="#contact">kontakt</a>
+        <Navigation className="nav" id="navbar">
+          <Link to="about" smooth={true} spy={true} duration={500}>
+            about
+          </Link>
+          <Link to="cv" smooth={true} spy={true} duration={700}>
+            cv
+          </Link>
+          <Link to="projects" smooth={true} spy={true} duration={900}>
+            projekte
+          </Link>
+
+          <Link to="contact" smooth={true} spy={true} duration={1100}>
+            kontakt
+          </Link>
         </Navigation>
         <Titlepic src={iver} alt="" />
       </HeaderContainer>
-      <AboutSection id="about"></AboutSection>
-      <CvSection id="cv" />
-      <PorjectsSection id="projects" />
-      <ContactSection id="contact" />
+      <AboutSection id="about" title="about"></AboutSection>
+      <CvSection id="cv" title="cv" />
+      <PorjectsSection id="projects" title="projects" />
+      <ContactSection id="contact" title="contact" />
     </>
   )
 }
@@ -75,5 +85,6 @@ const Navigation = styled.section`
 
 const Titlepic = styled.img`
   width: 100%;
-  height: auto;
+  height: 78vh;
+  object-fit: cover;
 `

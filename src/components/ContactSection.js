@@ -3,8 +3,8 @@ import styled from 'styled-components/macro'
 
 export default function ContactSection() {
   return (
-    <AboutSection id="contact">
-      <AboutSectionContent>
+    <ContactSectionContainer id="contact">
+      <ContactSectionContent>
         <li>Iver Gentz</li>
         <li>Wohlwillstraße 50</li>
         <li>20359 Hamburg</li>
@@ -12,43 +12,44 @@ export default function ContactSection() {
         <li>
           <a href="mailto:ivergentz@gmail.com">ivergentz@gmail.com</a>
         </li>
-      </AboutSectionContent>
-      <AboutSectionHeader>kontakt</AboutSectionHeader>
-      <ButtonUp href="#head">&uarr; hoch &uarr;</ButtonUp>
-    </AboutSection>
+      </ContactSectionContent>
+      <ContactSectionHeader>kontakt</ContactSectionHeader>
+      <ButtonContainer>
+        <ButtonLeft href="#projects">prev</ButtonLeft>
+        <ButtonUp href="#head">&uarr; hoch &uarr;</ButtonUp>
+      </ButtonContainer>
+    </ContactSectionContainer>
   )
 }
 
-const AboutSection = styled.section`
+const ContactSectionContainer = styled.section`
   display: grid;
-  grid-template-columns: 70vw 30vw;
-  grid-template-rows: auto;
+  grid-template-columns: auto;
+  grid-template-rows: 20vh 70vh 10vh;
   background: #7fd6ce;
   width: 100%;
-  height: auto;
+  height: 100vh;
 `
-const AboutSectionHeader = styled.h2`
+const ContactSectionHeader = styled.h2`
   display: grid;
+  grid-row: 0 / 1;
   font-weight: 500;
   font-size: 0.8em;
   align-items: center;
-  justify-content: end;
-  margin-right: 8vw;
+  justify-content: start;
+  margin-left: 10vw;
 `
-const AboutSectionContent = styled.ul`
-  display: flex;
+const ContactSectionContent = styled.ul`
+  display: grid;
+  grid-row: 2 / 3;
   flex-wrap: wrap;
   font-weight: 300;
-  height: 1vh;
-  justify-content: start;
   list-style-type: none;
-  height: auto;
-  margin: 4vh 0 4vh 4vw;
+  height: 1vh;
 
   li {
-    margin: 4vw;
+    margin-left: 4vw;
     font-size: 0.7em;
-    height: 1vh;
   }
 
   a {
@@ -57,12 +58,27 @@ const AboutSectionContent = styled.ul`
     color: black;
   }
 `
+
+const ButtonContainer = styled.section`
+  display: grid;
+  grid-template-columns: 33.33vw 33.33vw 33.33vw;
+  grid-template-rows: 1;
+  color: black;
+  font-size: 1em;
+  justify-content: left;
+  grid-row: 3 / 4;
+  margin: 2vh;
+`
+const ButtonLeft = styled.a`
+  text-decoration: none;
+  color: black;
+  font-size: 0.5em;
+`
+
 const ButtonUp = styled.a`
   display: flex;
-  color: black;
-  font-size: 0.4em;
-  text-decoration: none;
   justify-content: center;
-  grid-column: 1 / span 2;
-  margin: 2vh;
+  text-decoration: none;
+  color: black;
+  font-size: 0.6em;
 `
